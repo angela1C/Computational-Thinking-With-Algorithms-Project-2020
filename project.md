@@ -102,7 +102,7 @@ Introduce each of your chosen algorithms in turn, discuss their **space and time
 
 ***
 
-# 2.1.1 A Simple comparison-based sort - Bubble Sort
+## 2.1.1 A Simple comparison-based sort - Bubble Sort
 See [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort), [programiz](https://www.programiz.com/dsa/bubble-sort), [W3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php), [geekforgeeks](https://www.geeksforgeeks.org/bubble-sort/), [runestone interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBubbleSort.html)
 
 Bubble Sort is a fairly simple comparison-based sorting algorithm and is so named for the way larger values in a list “bubble up” to the end as sorting takes place. The algorithm repeatedly goes through the list to be sorted, comparing and swapping adjacent elements that are out of order.  With every new pass through the data, the next largest element bubbles up towards it's correct position. Although it is quite simple to understand and to implement, it is slow and impractical for most problems apart from situations where the data is already nearly sorted.
@@ -157,7 +157,7 @@ Illustrating the **worst-case** scenario where the array is in reverse order:
 
 There are n -1 passes through a list of n items. The total number of comparisons is the sum if the first `n-1` integers which is `1/2 n squared - 1/2 n` .
 Need to **format the fractions!!** for markdown. 
-This results in O(n<sup>2<sup>) comparisons.
+This results in O(n<sup>2</sup>) comparisons.
 
 - An array that is almost sorted still requires n-1 passes through the data, unless the optimised version of the algorithm is used.
 - In the best case where the array is already sorted, no exchanges are made but the comparisons still have to happen.
@@ -171,7 +171,7 @@ A nested loop is used to compare each element and sort them into the correct pla
 The outer loop `for passnum in range(len(alist)-1,0,-1)` starts from the second last element in the list and gets shorter each time, taking account of the fact that the elements at the end of the list are becoming sorted with each iteration of the outside loop. The inner loop goes through the elements, comparing the element on the left with the element on the right 
 
 
-The `temp` variable can be replaced in the `Python` programming language by using simultaneous assignments `if arr[j] > arr[j+1] : arr[j], arr[j+1] = arr[j+1], arr[j]`
+The `temp` variable can be replaced in the `Python` programming language by using simultaneous assignments `if array[i] > array[i+1] : array[i], array[i+1] = array[i+1], array[i]`
 
 
 ```python
@@ -187,8 +187,8 @@ def bubbleSort(array):
                 # If the elements are out of order swap them so the largest element is right of the smaller one
                 array[i], array[i+1] = array[i+1], array[i]
 ```
-There are $n-1$ passes required where n is the number of elements in the array minus 1.
-The outer loop runs $n-1$ times. At the end of each iteration, another element will be in it's final sorted position. The inner loop goes through each element in the array up to the element(s) already sorted, each time comparing each element `i` with the element to the immediate right of it `i+1`.
+There are ![n-1](https://render.githubusercontent.com/render/math?math=n-1 passes required where n is the number of elements in the array minus 1.
+The outer loop runs ![n-1](https://render.githubusercontent.com/render/math?math=n-1 times. At the end of each iteration, another element will be in it's final sorted position. The inner loop goes through each element in the array up to the element(s) already sorted, each time comparing each element `i` with the element to the immediate right of it `i+1`.
 Using the `>` comparison operator, the elements are compared. If the element on the left (at index `i`) is greater in value than the element on it's right (at index `i`) then the elements are swapped.
 
 
@@ -199,21 +199,21 @@ See [realpython] and lecture notes.
 The algorithm here has two `for` loops where it first performs $n-1$ comparisons, then $n-2$ comparisons and so on down to the final comparison. 
 
 
-In the **worst** case the outer loop has to execute $n-1$ times and in the **average** case the inner loop executes about $\frac{n}{2}$ times for each outer loop.
-Inside the inner loop, the comparison and swap operations take constant time $k$
+In the **worst** case the outer loop has to execute ![n-1](https://render.githubusercontent.com/render/math?math=n-1 times and in the **average** case the inner loop executes about ![\frac{n}{2}](https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn%7D%7B2%7D) times for each outer loop.
+Inside the inner loop, the comparison and swap operations take constant time k.
 
 So it total it performs ![(n-1) + (n-2) + (n-3) ... + 2+1](https://render.githubusercontent.com/render/math?math=(n-1)%20%2B%20(n-2)%20%2B%20(n-3)%20...%20%2B%202%2B1) which is  ![n\frac{n}{2}+k = \frac{n^2}{k} \approx O(n^2) ](https://render.githubusercontent.com/render/math?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
 
-(removing the constants which don't change with input size simplifies it to $n^2-n$, the $n$ is them removed as $n^2$ grows faster.
+(removing the constants which don't change with input size simplifies it to ![n^2-n](https://render.githubusercontent.com/render/math?math=n%5E2-n), the n is them removed as ![n^2](https://render.githubusercontent.com/render/math?math=n%5E2) grows faster.
 
 The worst case scenario for Bubble sort occurs when the data to be sorted is in reverse order.
 
-The bubble sort algorithm here always runs in $O(n)$ times even if the array is sorted. The algorithm can be optimised to stop the algorithm if the inner loop didn't cause any swaps. 
-If the optimised version of the bubble sort algorithm is applied on a nearly sorted array then the best case will be $O(n)$. This optimised version of the algorithm was not used here. 
+The bubble sort algorithm here always runs in ![O(n)](https://render.githubusercontent.com/render/math?math=O(n)) times even if the array is sorted. The algorithm can be optimised to stop the algorithm if the inner loop didn't cause any swaps. 
+If the optimised version of the bubble sort algorithm is applied on a nearly sorted array then the best case will be ![O(n)](https://render.githubusercontent.com/render/math?math=O(n)). This optimised version of the algorithm was not used here. 
 
 The average case is when the elements of the array are in random order.
 
-The space complexity of Bubble Sort algorithm is $O(1)$. The only additional memory is needed for the temporary  variable used for the swapping.
+The space complexity of Bubble Sort algorithm is ![O(1)](https://render.githubusercontent.com/render/math?math=O(1)). The only additional memory is needed for the temporary  variable used for the swapping.
 
 Note here does using simultaneous assignment instead of temporary variables in Python change this?????????
 
@@ -222,15 +222,15 @@ See [runestone](https://runestone.academy/runestone/books/published/pythonds/Sor
 
 ## Summary of time and space complexity of Bubble Sort:
 
-- Best Case complexity: $O(n)$
-- Average Case complexity: $O(n^2)$
-- Worst Case complexity: $O(n^2)$
-- Space complexity:  $O(n)$
+- Best Case complexity: ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
+- Average Case complexity: ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2))
+- Worst Case complexity: ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2))
+- Space complexity:  ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
 
 The results from the benchmarking will be in section 3 - Implementation and Benchmarking.
 
 ***
-# 2.1.2 Merge Sort - an efficient comparison based sort
+## 2.1.2 Merge Sort - an efficient comparison based sort
 
 - See [merge sort](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html), [programiz](https://www.programiz.com/dsa/merge-sort)
 
@@ -315,9 +315,9 @@ def merge_sort(array):
 The Merge Sort algorithm uses a recursive divide-and-conquer approach which results in a worst-case running time of $O(n\log{}n)$.
 
 The algorithm consists of two distinct processes, the splitting and the merging. 
-- A list can be split in half $log \  n$ times where $n$ is the number of elements in the list.
-- Each item in the list will eventually be processed and placed in the sorted list. This means a list of size $n$ will require $n$ operations.
-Therefore there are $\log n$ splits, each of which costs $n$ for a total of $n \log n$ operations
+- A list can be split in half ![log \  n](https://render.githubusercontent.com/render/math?math=log%20%5C%20%20n) times where n is the number of elements in the list.
+- Each item in the list will eventually be processed and placed in the sorted list. This means a list of size n will require n operations.
+Therefore there are ![log \  n](https://render.githubusercontent.com/render/math?math=log%20%5C%20%20n) splits, each of which costs n for a total of ![log \  n](https://render.githubusercontent.com/render/math?math=log%20%5C%20%20n) operations
 - Merge Sort needs extra space to hold the left and right halves which can be a critical factor for large datasets.
 See [interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html)
 
@@ -328,14 +328,14 @@ Merge Sort is a stable sorting algorithm.
 
 ## Summary of time and space complexity of Merge Sort
 
-- Best Case complexity: $O(n\log{}n)$
-- Average Case complexity: $O(n\log{}n)$
-- Worst Case complexity: $O(n\log{}n)$
-- Space complexity:  $O(n)$
+- Best Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))$
+- Average Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
+- Worst Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
+- Space complexity:  ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
 
 
 ***
-# 2.1.3 Counting Sort - a non-comparison sort
+## 2.1.3 Counting Sort - a non-comparison sort
 
 
 See [w3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-10.php),[wikipedia](https://en.wikipedia.org/wiki/Counting_sort), [programiz](https://www.programiz.com/dsa/counting-sort), [geeksforgeeks](https://www.geeksforgeeks.org/counting-sort/).
@@ -380,32 +380,25 @@ So the output array will have `[1,2,3,3,3,5,6]`
 
 
 
-The Python code for the Counting Sorting algorithm is widely available online at [w3resources.com](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-10.php), [geeksforgeeks](https://www.geeksforgeeks.org/counting-sort/), [programiz](https://www.programiz.com/dsa/counting-sort) and [quinston.com](https://quinston.com/code-snippets/counting-sort-code)
+The Python code for the Counting Sorting algorithm is widely available online at [w3resources.com](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-10.php), [geeksforgeeks](https://www.geeksforgeeks.org/counting-sort/), [programiz](https://www.programiz.com/dsa/counting-sort).
 
 I have slightly adapted the variable names for my own understanding and commented the code.
 
 
 ```python
 def CountingSort(array):
-
-    # determine the length of the array to be sorted
     n= len(array)
-    # create an array to store the sorted data
-    sorted = []
-    # create a counter array and initialise with zeros
-    # the length of the array should be based on the largest value in the input range plus 1
-    # it could also be just the length of the input array plus 1
+    # creating a counter array initialised with zeros, length based on maximum value in the input range (plus 1)
+    # counter to record each time each unique value occurs
     counter= [0 for i in range(max(array)+1)]
-    # an array to store the sorted 
-
-   # go through each element in the array, use the element as the index for the counter array
-    # and increment the counter by 1
-    # the counter is counting how many times each element i  in the array occurs
+    # an array to store the sorted values
+    sorted = []   
+    # loop over each element, use the element of the array input as the index for the counter array
     for i in array:
         # each time an element appears in the array, increment the counter by 1
        counter[i] += 1
+    # Using the count of the number of times each element occurs to place elements in the sorted array
 
-    # Now using the count of the number of times each element occurs to put the elements in the sorted array
     for i in range(0,len(counter)):
         # while the counter shows that there is a matching element
         while counter[i] > 0:
@@ -416,17 +409,17 @@ def CountingSort(array):
     return sorted
 ```
 
-## The Time and Space Complexity of the Counting Sort Algorithm
+### The Time and Space Complexity of the Counting Sort Algorithm
 
 The Counting Sort algorithm allows for the sorting of a collection of items in close to linear time.
-$O(n)$ time is possible because assumptions can be made about the data and therefore there is no need to compare elements against each other. 
+![O(n)](https://render.githubusercontent.com/render/math?math=O(n)) time is possible because assumptions can be made about the data and therefore there is no need to compare elements against each other. 
 
-The input to the Counting Sort algorithm is generally a collection of $n$ item with each item having a non-negative integer `key` with a maximum value of `k`. The input could also be simply a sequence of integers as is used here for this benchmarking project.
-So $n$ represents the number of elements in the input array to be sorted, $k$ represents the range of the input.
+The input to the Counting Sort algorithm is generally a collection of n items with each item having a non-negative integer `key` with a maximum value of `k`. The input could also be simply a sequence of integers as is used here for this benchmarking project.
+So `n` represents the number of elements in the input array to be sorted, `k` represents the range of the input.
 There are four main loops in the algorithm.
 The range could be found both inside the algorithm or outside of the algorithm and provided as a paramter to the function.
 There are no comparisons made between any elements. 
-The complexity will always be the same because it doesn't matter what order the elements are in the array to be sorted, the algorithm will still have to iterate $n + k$ times where $n$ is the size of the array to be sorted and $k$ is the largest value in the array which determines the size of the counter array.
+The complexity will always be the same because it doesn't matter what order the elements are in the array to be sorted, the algorithm will still have to iterate ![$n + k$](https://render.githubusercontent.com/render/math?math=%24n%20%2B%20k%24) times where n is the size of the array to be sorted and k is the largest value in the array which determines the size of the counter array.
 
 The space complexity depends on the maximum value in the data to be sorted. A larger range of elements requires a larger counter array. 
 
@@ -435,10 +428,10 @@ The space complexity depends on the maximum value in the data to be sorted. A la
 *counting sort's running time is linear in the number of items and the difference between the maximum and minimum key values, so it is only suitable for direct use in situations where the variation in keys is not significantly greater than the number of items. However, it is often used as a subroutine in another sorting algorithm, radix sort, that can handle larger keys more efficiently.*
 
 ## Summary of time and space complexity of Counting Sort
-- Best Case complexity: $O(n + k)$
-- Average Case complexity: $O(n + k)$
-- Worst Case complexity: $O(n + k)$
-- Space complexity:  $O(n + k)$
+- Best Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
+- Average Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
+- Worst Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
+- Space complexity:  ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
 
 The counting sort algorithm is stable if it is implemented in the correct way. In the third `for` loop of the code, as it iterates over the items again placing them into their sorted position in the output array, the relative order of the items with equal keys is maintained.
 
@@ -446,7 +439,7 @@ For this project, as only integers are being sorted, stability is not an issue. 
 
 
 ***
-# 2.1.4 Insertion Sort (any other sorting algorithm of your choice)
+## 2.1.4 Insertion Sort (any other sorting algorithm of your choice)
 
 Here I look at another simple sorting algorithm. Insertion Sort is a simple comparison based algorithm.
 
@@ -456,7 +449,7 @@ According to [Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort), *Inserti
 
 The **Insertion Sort** algorithm is relatively easy to implement and understand as it can be compared to sorting a deck of cards. The first element is assumed to be sorted. The sorted list is built one element at a time by comparing each item with the rest of the items in the list, then inserting the element into its correct position. After each iteration, an unsorted element has been placed in it's right place.
 
-After $k$ passes through the data, the first $k$ elements of the input data are in sorted order. 
+After k passes through the data, the first k elements of the input data are in sorted order. 
 
 ### Explain how Insertion Sort works using own diagrams and different example input instances.
 Insertion Sort is an iterative algorithm.
@@ -466,7 +459,7 @@ Start from the left of the input array, set the `key` as the element at index 1.
 
 Compare any elements to the left of this key with the key, move any elements which are greater in value than the `key` right by one position and insert the `key`. Next move to the element at index 2 and make this the `key` and in the same way moving any elements on the left of the key that are greater than the key to the right by one position. 
 
-Repeat this with all the elements up to the last element. There is one pass through the list for every element from index $1$ to index $n-1$. At each pass the current `key` element is being compared with a (growing) sorted sublist to the left of it. Any elements with a value greater than the key is moved to the right each time. After this process the array should be sorted..
+Repeat this with all the elements up to the last element. There is one pass through the list for every element from index 1 to index ![$n-1$](https://render.githubusercontent.com/render/math?math=%24n-1%24). At each pass the current `key` element is being compared with a (growing) sorted sublist to the left of it. Any elements with a value greater than the key is moved to the right each time. After this process the array should be sorted..
 
 ## Example to illustrate Insertion Sort
 
@@ -522,43 +515,44 @@ def insertionSort(array):
          # reposition j to point to the next element
             j -= 1
 
-    # after shifting elements, insert key in it's correct new position just after the element smaller than it.
+    # after shifting elements, move key to its correct new position after the element just smaller than it.
         array[j+1]=key
 
 ```
 
 
-### analysing insertion sort
-There are $n-1$ passes required to sort $n$ items - there is a pass for each element from the second element at index 1 up to the last element.
+### Analysing Insertion Sort
+There are ![$n-1$](https://render.githubusercontent.com/render/math?math=%24n-1%24) passes required to sort n items - there is a pass for each element from the second element at index 1 up to the last element.
 
 In the best case only one comparison is required on each pass which would be the case for a list that is already sorted. 
 Insertion sort is the only comparison-based sorting algorithm that does this.  The inner loop only iterates until it finds the insertion point.
 
 On input data sets that are almost sorted, the Insertion Sort algorithm runs in $n + d$ time where $d$ is the number of **inversions**. A sorted list would have no inversions and therefore run in linear time in the best case.
-On average a list of size $n$ has $\frac{(n-1)n}{4}$ invertions and $n-1 + \frac{(n-1)n}{4} \approx n^2$ comparisons. (lecture notes.)
+On average a list of size n has ![\frac{(n-1)n}{4}](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B(n-1)n%7D%7B4%7D) invertions and ![$n-1 + \frac{(n-1)n}{4} \approx n^2$](https://render.githubusercontent.com/render/math?math=%24n-1%20%2B%20%5Cfrac%7B(n-1)n%7D%7B4%7D%20%5Capprox%20n%5E2%24) comparisons. (See lecture notes.)
 
-The Insertion Sort algorithm is not very efficient on large random datasets. In the worst case, a list of size $n$ has $\frac{(n-1)n}{2}$ invertions which would be the case for an input list where the items are all in reverse order.
-The maximum number of comparisons then would be  $n-1 + \frac{(n-1)n}{2} \approx n^2$. This is the sum of the first $n-1$ items which is $O(n^2)$. 
+The Insertion Sort algorithm is not very efficient on large random datasets. In the worst case, a list of size n has ![\frac{(n-1)n}{2}](https://render.githubusercontent.com/render/math?math=%5Cfrac%7B(n-1)n%7D%7B2%7D) invertions which would be the case for an input list where the items are all in reverse order.
+The maximum number of comparisons then would be ![$n-1 + \frac{(n-1)n}{2} \approx n^2$](https://render.githubusercontent.com/render/math?math=%24n-1%20%2B%20%5Cfrac%7B(n-1)n%7D%7B2%7D%20%5Capprox%20n%5E2%24)
+
+This is the sum of the first ![$n-1$](https://render.githubusercontent.com/render/math?math=%24n-1%24) items which is ![$O(n^2)$](https://render.githubusercontent.com/render/math?math=%24O(n%5E2)%24). 
 In the worst case, the inner loop will iterate over the entire sorted part of the list while in the best case, on an list that is already sorted the inner loop does not need to iterate at all.
 
-The space complexity is $O(1)$ because of the additional variable `key` being used.
+The space complexity is ![$O(1)$](https://render.githubusercontent.com/render/math?math=%24O(1)%24) because of the additional variable `key` being used.
 
 
 
 ## Summary of time and space complexity of Insertion Sort
 
-- Best Case complexity: $O(n)$
-- Average Case complexity: $O(n^2)$
-- Worst Case complexity: $O(n^2)$
-- Space complexity:  $O(1)$
-
-
-Insertion Sort is a **stable** and  **in-place** sorting algorithm. It works best on smaller lists and lists that are almost sorted.
+- Best Case complexity: ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
+- Average Case complexity: ![$O(n^2)$](https://render.githubusercontent.com/render/math?math=%24O(n%5E2)%24)
+- Worst Case complexity: ![$O(n^2)$](https://render.githubusercontent.com/render/math?math=%24O(n%5E2)%24)
+- Space complexity:  ![$O(1)$](https://render.githubusercontent.com/render/math?math=%24O(1)%24)
 
 
 The Insertion Sort differs from other simple sorting algorithms such as Bubble Sort and Selection Sort in that while values are shifted up one position in the list, there is no exchange as such. [Interactive Python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheInsertionSort.html) notes that in general, a shift operation requires approximately a third of the processing work of an exchange since only one assignment is performed. 
 
-Therefore in benchmark studies such as this, Insertion Sort will show very good performance compared to other simple sorting algorithms such as Bubble Sort.  Look at this and see!
+Therefore in benchmark studies such as this, Insertion Sort will show very good performance compared to other simple sorting algorithms such as Bubble Sort.  
+
+Look at this and see....
 
 Insertion Sort is a stable in-place sorting algorithm. It works well on small lists and lists that are close to being sorted but is not very efficient on large random lists.
 Nutshell notes how it's efficiency increased when duplicate items are present.
@@ -570,7 +564,7 @@ Nutshell notes how it's efficiency increased when duplicate items are present.
 
 
 
-# 2.1.5 Quick Sort (any other sorting algorithm of your choice)
+## 2.1.5 Quick Sort (any other sorting algorithm of your choice)
 
 See [runestone academy](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheQuickSort.html),[w3resource](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-9.php), [Wikipedia](https://en.wikipedia.org/wiki/Quicksort), [geeksforgeeks](https://www.geeksforgeeks.org/quick-sort/), [programiz.com](https://www.programiz.com/dsa/quick-sort)
 
@@ -611,15 +605,21 @@ high/right is the ending index
 - discuss **time and space complexity**
 ## Summary of time and space complexity of Quick Sort
 lecture notes:
-- Best Case complexity: $O(n \log n)$
-- Average Case complexity: $O(n \log n)$
-- Worst Case complexity: $O(n^2)$
-- Space complexity:  $O(n)$
-While memory usage is  $O(n)$, there are variants of the Quick Sort algorithm that are $O(n \log n)$.
+- Best Case complexity: ![$O(n \log n)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%5Clog%20n)%24)
+- Average Case complexity: ![$O(n \log n)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%5Clog%20n)%24)
+- Worst Case complexity: ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2))
+- Space complexity:  ![$O(n)$](https://render.githubusercontent.com/render/math?math=%24O(n)%24)
+While memory usage is  ![$O(n)$](https://render.githubusercontent.com/render/math?math=%24O(n)%24), there are variants of the Quick Sort algorithm that are ![$O(n \log n)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%5Clog%20n)%24).
 In practice it is one of the fastest known sorting algorithms, on average.
 Standard version is not stable, although stable versions do exist.
 
 According to Wikipedia "Inefficient implementations it is not a stable sort, meaning that the relative order of equal sort items is not preserved. Quicksort can operate in-place on an array, requiring small additional amounts of memory to perform the sorting."
+***
+### Need to sort out example image...
+
+
+
+
 ***
 # References
 
@@ -627,11 +627,14 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 
 - [geeksforgeeks](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)
 
+## Bubble Sort
 - [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
 - [programiz](https://www.programiz.com/dsa/bubble-sort)
 -  [W3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php)
 -  [geekforgeeks](https://www.geeksforgeeks.org/bubble-sort/)
 -  [runestone interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBubbleSort.html)
+
+## Merge Sort
 
 - [merge sort](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html)
 - [programiz](https://www.programiz.com/dsa/merge-sort)
@@ -639,5 +642,28 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 - [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)
 - [divide-and-conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) 
 
+## Counting Sort
+- [w3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-10.php)
+- [wikipedia](https://en.wikipedia.org/wiki/Counting_sort)
+- [programiz](https://www.programiz.com/dsa/counting-sort)
+- [geeksforgeeks](https://www.geeksforgeeks.org/counting-sort/).
 
--[Showing LaTeX formulas in GitHub Markdown](https://alexanderrodin.com/github-latex-markdown/?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
+## Insertion Sort
+-[interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheInsertionSort.html)- [w3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/)
+- [programiz](https://www.programiz.com/dsa/insertion-sort)
+- [realpython]()
+- [Wikipedia](https://en.wikipedia.org/wiki/Insertion_sort)
+
+## QuickSort
+- [runestone academy](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheQuickSort.html)
+- [w3resource](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-9.php)
+- [Wikipedia](https://en.wikipedia.org/wiki/Quicksort)
+- [geeksforgeeks](https://www.geeksforgeeks.org/quick-sort/)
+- [programiz.com](https://www.programiz.com/dsa/quick-sort)
+
+
+
+## Other references
+
+
+- [Showing LaTeX formulas in GitHub Markdown](https://alexanderrodin.com/github-latex-markdown/?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
