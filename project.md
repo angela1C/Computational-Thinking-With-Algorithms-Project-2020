@@ -1,14 +1,23 @@
-# Report (60%)
+# Project: Benchmarking Sorting Algorithms in Python
 
-## 1. Introduction (10%): 
-Introduce the concept of sorting and sorting algorithms, discuss the relevance of concepts such as complexity (time and space), performance, in-place sorting, stable sorting, comparator functions, comparison-based and non-comparison-based sorts, etc.
+testing LaTeX ...
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+See [showing LaTeX formulas in GitHub](https://gist.github.com/a-rodin/fef3f543412d6e1ec5b6cf55bf197d7b)
 
-Notes based largely on information from Algorithms in a Nutshell and lecture notes. Any other source is referenced as it arises.
 
 
+In the **worst** case the outer loop has to execute $n-1$ times and in the **average** case the inner loop executes about <img src="https://render.githubusercontent.com/render/math?math=\frac{n}{2}"> times for each outer loop.
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{n}{2}">
+<img src="https://render.githubusercontent.com/render/math?math=$\frac{n}{2}$">
+
+## 1. Introduction 
+(introduction 10%): 
 **Introduce the concept of sorting and sorting algorithms, discuss the relevance of concepts such as complexity (time and space), performance, in-place sorting, stable sorting, comparator functions, comparison-based and non-comparison-based sorts, etc.**
 
-(This covers the concept of sorting and sorting algorithms I think)
+Notes based largely on information from Algorithms in a Nutshell and lecture notes. Any other source is referenced as it arises.
+Review and edit.
+
 **Sorting** is the process or operation of ordering items and data according to specific criteria [Collins Dictionary](https://www.collinsdictionary.com/dictionary/english/sorting). Arranging items, whether manually or digitally into some order makes many common tasks easier to do. Sorted information is nearly always easier for human beings to understand and work with, whether it is looking up a number in a phone book, finding a book on a library or bookshop shelf, referring to a statistical tables book, deciding what to watch on television. It is even more pervasive when we use technology. Social media and news feeds, emails, search items in a browser or recommendations for where to eat to what to do are all sorted according to some algorithms whether it is by date, popularity, location etc.
 
 Sorted sequences are commonly used to make many other tasks more efficient as many computations can be simplified by having the information properly sorted beforehand. 
@@ -17,9 +26,9 @@ Sorting is a common operation in many computer applications and the search for e
 According to [Algorithms to live by](), sorting is at the very heart of what computers do and is what actually brought computers into being in the first place. The task of tabulating the US Census in the late nineteenth century became very difficult as the population grew. An inventor Herman Hollerith was inspired by the punched railway tickets of the time to devise a system of punched cards and a machine (the Hollerith Machine) to count and sort them. This system was then used for the 1890 census. Hollerith's company later merged with others in 1911 to become the Computing Tabulating Recording Company which was later renamed to International Business Machines (IBM). 
 Sorting then lay behind the development of the computer in the 20th century. By the 1960's it was estimated by one study that more than a quarter of the world's computing resouces were spent on sorting.
 
-According to Nutshell, if a collection of comparable elements A is presented to be sorted in place where A[i] and ai refer to the ith element in the collection with A[0] being the first element in the collection, then to sort the collection the elements A must be reorganised so that if A[i] < A[j], then i < j. Any duplicate elements must be contiguous in the resulting ordered collection. This means that if if A[i] = A[j] in a sorted collection, then there can be no k such that i < k < j and A[i] ≠ A[k]. Finally, the sorted collection A must be a permutation of the elements that originally formed A. 
+According to Algorithms in a Nutshell, if a collection of comparable elements `A` is presented to be sorted in place where `A[i]` and `ai` refer to the ith element in the collection with `A[0]` being the first element in the collection, then to sort the collection the elements `A` must be reorganised so that if `A[i] < A[j]`, then `i < j`. Any duplicate elements must be contiguous in the resulting ordered collection. This means that if `A[i] = A[j]` in a sorted collection, then there can be no `k` such that `i < k < j` and `A[i] ≠ A[k]`. Finally, the sorted collection A must be a permutation of the elements that originally formed `A`. 
 
-Nutshell also outlines how "the elements in the collection being compared must admit a total ordering. That is, for any two elements p and q in a collection, exactly one of the following three predicates is true: p = q, p < q, or p > q. ".
+The book also outlines how "the elements in the collection being compared must admit a total ordering. That is, for any two elements p and q in a collection, exactly one of the following three predicates is true: `p = q`, `p < q`, or `p > q` ".
 
 Numbers and single characters can be quite easily sorted. While composite elements such as strings of characters are usually sorted by sorting each individual element of the string. Two elements can be compared to each other to see if they are less than, greater than or equal to each other.  Sorting of custom objects may require a custom ordering scheme. In general a **comparator function** compares the elements p to q and returns 0 if p = q, a negative number if p < q, and a positive number if p > q. Using the example provided in the book, an airport terminal might list outbound flights in ascending order of destination city or departure time while flight numbers appear to be unordered.
 
@@ -55,7 +64,7 @@ Some algorithm create empty arrays to hold sorted copies and this requires more 
 **Stability** means that equivalent elements will retain their relative positioning after the sorting has taken place.
 With a stable sorting algorithm the order of equal elements is the same in the input and output.
  It is an important factor to consider when sorting key value pairs where the data might contain duplicate keys. This project only looks at sorting one dimensional arrays of integers but there are many other applications of sorting where the data has more than one dimension, in which case the data is sorted based on one column of data known as the key with the rest of the data is known as satellite data and should travel with the key when it is moved to another position.
-According to [Reference: Pollice G., Selkow S. and Heineman G. (2016). Algorithms in a Nutshell, 2nd Edition. O' Reilly.], if two elements (ai and aj) in the original unsorted data are equal (as determined by the comparator function), stable sorting refers to the fact such pairs of equal elements will retain their relative ordering after the sorting has taken place. If i < j then the final location of a<sub>i must be to the left of a<sub>j. Sorting algorithms that can guarantee this property are considered stable. 
+According to [Reference: Pollice G., Selkow S. and Heineman G. (2016). Algorithms in a Nutshell, 2nd Edition. O' Reilly.], if two elements (ai and aj) in the original unsorted data are equal (as determined by the comparator function), stable sorting refers to the fact such pairs of equal elements will retain their relative ordering after the sorting has taken place. If i < j then the final location of a<sub>i</sub> must be to the left of a<sub>j</sub>. Sorting algorithms that can guarantee this property are considered stable. 
 
 A sorting algorithm is considered stable if two objects with equal keys end up in the same order in the sorted output as they appear in the input. An unstable algorithm does not pay attention to the relationship between element locations in the original collection and does not guarantee the relative ordered will be kept after the sorting has taken place.
 See [geeksforgeeks](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)
@@ -69,9 +78,9 @@ Complexity allows for algorithms to be compared by looking at their running time
 Memory or storage requirements of an algorithm could also be evaluated in this manner.
 
 The runtime of sorting algorithms can be measured by measuring the actual implementation of the algorithm using a timer function like pythons `timeit` module. The theoretical runtime complexity can be measured uses `Big O` notation which is a measure of the expected efficiency of an algorithm and measures the asymptotic behaviours of functions which means it measures how quickly a function grows or declines. The growth rate of a function is also called its *order*.  
-Big `O` represents the relationship between the size of the input `n` and the number of operations the algorithm takes and shows how quickly the the runtime grows as the input size increases. 
+Big $O$ represents the relationship between the size of the input $n$ and the number of operations the algorithm takes and shows how quickly the the runtime grows as the input size increases. 
 
-Big O notation is usually used to describe the complexity of an algorithm in the worst-case scenario. It could also be used to describe the execution time required or the memory space used by an algorithm. 
+Big $O$ notation is usually used to describe the complexity of an algorithm in the worst-case scenario. It could also be used to describe the execution time required or the memory space used by an algorithm. 
 While for small input size n all algorithms are efficient, when the size becomes non-trivial then 
 the order or growth or big O notation of an algorithm will become more and more significant and become more and more important.
 
@@ -85,10 +94,11 @@ Constant, linear, quadratic, exponential and logarithmic...
 
 ***
 
-# 2. Sorting Algorithms (5 x 5 = 25%): 
+## 2.  Five Sorting Algorithms 
+(5 x 5 = 25%): 
 Introduce each of your chosen algorithms in turn, discuss their **space and time complexity**, and **explain how each algorithm works** using your own diagrams and different example input instances.
 
-(by different example input instances, he means that each algorithm has its own average, best and worst case. The example inputs to be used in the report should highlight the behaviour of the algorithms under these different conditions.)
+(by different example input instances, he means that each algorithm has its own average, best and worst case. The example inputs to be used in the report should highlight the behaviour of the algorithms under these different conditions.??)
 
 ***
 
@@ -108,6 +118,8 @@ The algorithm continues by comparing and swapping the remaining elements in the 
 
 ## Example
 Here I will illustrate how the algorithm works using a small input array.
+Need to get the image showing up here..
+
 
 - The array to be sorted [6, 11, 3, 9, 4]
 - The number of passes or iterations required will be n-1 = 4 on a list of size 5.
@@ -125,10 +137,8 @@ For the first pass, the algorithm iterates through the array from left to right,
 - Nevertheless the algorithm still does a 4th pass through the array, although there are no more elements to be sorted.
 - The algorithm is finished.
 
-See bubble_example.numbers for illustration.
 The example here shows how n-1 passes are made through the array of n elements. 
 there are n-1 comparisons performed on the first pass, n-2 on the second pass, n-3 on the third pass and n-4 on the 4th pass.
-
 
 The total number of comparisons is the sum of the first n-1 integers. 
 
@@ -149,7 +159,6 @@ There are n -1 passes through a list of n items. The total number of comparisons
 Need to **format the fractions!!** for markdown. 
 This results in O(n<sup>2<sup>) comparisons.
 
-# the best case, not using the optimised algorithm. not sure if i can call this the best case...??
 - An array that is almost sorted still requires n-1 passes through the data, unless the optimised version of the algorithm is used.
 - In the best case where the array is already sorted, no exchanges are made but the comparisons still have to happen.
 
@@ -157,41 +166,30 @@ The average case for the Bubble Sort algorithm is that exchnages are made half t
 
 The python code to implement the Bubble Sort algorithm above is as follows. This code is widely available online and while there are some small differences, they are all largely the same. The code used in this project was adapted from code at [runestone academy](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBubbleSort.html). There is also an optimised version of the bubble sort algorithm known as the `Short bubble` which stops early if the algorithm finds that the list has become sorted already before all the loops have executed.
 
-**Note - clean up the code here! come back and use one or the other!**
 
 A nested loop is used to compare each element and sort them into the correct place.
 The outer loop `for passnum in range(len(alist)-1,0,-1)` starts from the second last element in the list and gets shorter each time, taking account of the fact that the elements at the end of the list are becoming sorted with each iteration of the outside loop. The inner loop goes through the elements, comparing the element on the left with the element on the right 
 
-```python
-def bubbleSort(alist):
-    for passnum in range(len(alist)-1,0,-1):
-        for i in range(passnum):
-            if alist[i]>alist[i+1]:
-                temp = alist[i]
-                alist[i] = alist[i+1]
-                alist[i+1] = temp
-```
 
 The `temp` variable can be replaced in the `Python` programming language by using simultaneous assignments `if arr[j] > arr[j+1] : arr[j], arr[j+1] = arr[j+1], arr[j]`
 
 
 ```python
-def bubbleSort(arr):
-    # letting p be the number of passes required (one less than the length of the array)
-    p = len(arr)-1 
-    # The outer loop goes through the elements n-1 time
-    for i in range(p): 
-        for j in range(0, p-i): 
-            # comparing each element j with the element beside it (j+1) 
-            if arr[j] > arr[j+1] : 
-                # If the elements are out of order swap them.
-                arr[j], arr[j+1] = arr[j+1], arr[j]
-```
-`p` is the number of passes required which is the number of elements in the array (n) minus 1.
-The outer loop runs n-1 times. At the end of each iteration, another element will be in it's final sorted position. The inner loop goes through each element in the array up to the element(s) already sorted, each time comparing each element `j` with the element to the immediate right of it `j+1`.
-Using the `>` comparison operator, the elements are compared. If the element on the left (at index `j`) is greater in value than the element on it's right (at index `j`) then the elements are swapped.
+def bubbleSort(array):
+    # The outer loop goes through the elements n-1 times, if n is the number of elements in the list
 
-##
+    for passnum in range(len(array)-1,0,-1):
+        # count down to 0 as each time another element at the end of the list is sorted.
+        # at each pass the last i elements are already in place so the inner loop is shorted by 1 each time
+        for i in range(passnum): 
+            # comparing each element i with the element right beside it (i+1)  
+            if array[i] > array[i+1] : 
+                # If the elements are out of order swap them so the largest element is right of the smaller one
+                array[i], array[i+1] = array[i+1], array[i]
+```
+There are $n-1$ passes required where n is the number of elements in the array minus 1.
+The outer loop runs $n-1$ times. At the end of each iteration, another element will be in it's final sorted position. The inner loop goes through each element in the array up to the element(s) already sorted, each time comparing each element `i` with the element to the immediate right of it `i+1`.
+Using the `>` comparison operator, the elements are compared. If the element on the left (at index `i`) is greater in value than the element on it's right (at index `i`) then the elements are swapped.
 
 
 ### Analysing Bubble Sort.
@@ -200,12 +198,13 @@ Using the `>` comparison operator, the elements are compared. If the element on 
 See [realpython] and lecture notes.
 The algorithm here has two `for` loops where it first performs $n-1$ comparisons, then $n-2$ comparisons and so on down to the final comparison. 
 
+
 In the **worst** case the outer loop has to execute $n-1$ times and in the **average** case the inner loop executes about $\frac{n}{2}$ times for each outer loop.
 Inside the inner loop, the comparison and swap operations take constant time $k$
 
-So it total it performs $(n-1) + (n-2) + (n-3) ... + 2+1$ which is $n\frac{n}{2}+k = \frac{n^2}{k} \approx O(n^2)$ written as 1/2 n^2 - 1/2n.
-(removing the constants which don't change with input size simplifies it to $n^2-n$, the $n$ is them removed as $n^2$ grows faster.
+So it total it performs ![(n-1) + (n-2) + (n-3) ... + 2+1](https://render.githubusercontent.com/render/math?math=(n-1)%20%2B%20(n-2)%20%2B%20(n-3)%20...%20%2B%202%2B1) which is  ![n\frac{n}{2}+k = \frac{n^2}{k} \approx O(n^2) ](https://render.githubusercontent.com/render/math?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
 
+(removing the constants which don't change with input size simplifies it to $n^2-n$, the $n$ is them removed as $n^2$ grows faster.
 
 The worst case scenario for Bubble sort occurs when the data to be sorted is in reverse order.
 
@@ -228,28 +227,7 @@ See [runestone](https://runestone.academy/runestone/books/published/pythonds/Sor
 - Worst Case complexity: $O(n^2)$
 - Space complexity:  $O(n)$
 
-
-## Here are the preliminary results from running the algorithm.
-I will probably do it again when nothing else is running on the laptop but fine for now.
-
-
-
- | Algorithm |  Average |  Size
- | --- |  --- | ---  |
-Bubble   	|	0.0009	|	100
-Bubble   	|	0.0031	|	250
-Bubble   	|	0.0096	|	500
-Bubble   	|	0.0209	|	750
-Bubble   	|	0.0358	|	1000
-Bubble   	|	0.0550	|	1250
-Bubble   	|	0.1359	|	2500
-Bubble   	|	0.2949	|	3750
-Bubble   	|	0.5457	|	5000
-Bubble   	|	0.9001	|	6250
-Bubble   	|	1.3634	|	7500
-Bubble   	|	2.1222	|	8750
-Bubble   	|	1.9668	|	10000
-
+The results from the benchmarking will be in section 3 - Implementation and Benchmarking.
 
 ***
 # 2.1.2 Merge Sort - an efficient comparison based sort
@@ -263,7 +241,7 @@ A [divide-and-conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorith
 
 
 
-### Explain how merge sort works using own diagrams and different example input instances.
+#### Explain how Merge Sort works using own diagrams and different example input instances...
 
 The algorithm uses divide-and-conquer approach by breaking down the list into two evenly (as much as possible) sized halves, then repeatedly does this to each half until the sublist contains a single element or less. Each sub problem is then sorted recursively and the solutions to all the sub-lists are combined into a single sorted new list.
 
@@ -271,62 +249,27 @@ A list with one or less elements is considered sorted and is the base case for t
 All the smaller-sublists are repeatedly merged back into a new single sorted list.
 This algorithm will need extra memory to copy the elements when sorting. The extra space is needed to store the two halves when they are extracted using the slicing.
 
-## illustrating using output for now
-[8, 6, 3, 4, 5, 2]
-Splitting  [8, 6, 3, 4, 5, 2]
-Splitting  [8, 6, 3]
-Splitting  [8]
-Merging  [8]
-Splitting  [6, 3]
-Splitting  [6]
-Merging  [6]
-Splitting  [3]
-Merging  [3]
- left array: [6] , right array [3]
- Into merged goes 6
-Merging  [3, 6]
- left array: [8] , right array [3, 6]
- left array: [8] , right array [3, 6]
- Into merged goes 8
-Merging  [3, 6, 8]
-Splitting  [4, 5, 2]
-Splitting  [4]
-Merging  [4]
-Splitting  [5, 2]
-Splitting  [5]
-Merging  [5]
-Splitting  [2]
-Merging  [2]
- left array: [5] , right array [2]
- Into merged goes 5
-Merging  [2, 5]
- left array: [4] , right array [2, 5]
- left array: [4] , right array [2, 5]
- Into merged goes 5
-Merging  [2, 4, 5]
- left array: [3, 6, 8] , right array [2, 4, 5]
- left array: [3, 6, 8] , right array [2, 4, 5]
- left array: [3, 6, 8] , right array [2, 4, 5]
- left array: [3, 6, 8] , right array [2, 4, 5]
- Into merged goes 6
- Into merged goes 8
-Merging  [2, 3, 4, 5, 6, 8]
-[2, 3, 4, 5, 6, 8]
+**need to insert image of merge sort example here ...**
+
+
+
 
 
 ## The python code for Merge Sort
 
 The following is the python code for the Merge Sort algorithm. This code is widely available online. 
-The code used in this project is based on the code available at Interactive Python. I have added comments to the code in the accompanying python script which is used in this benchmarking project. See merge.py
+The code used in this project is based on the code at [runestone academy](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html). I have added comments to the code in the accompanying python script which is used in this benchmarking project. See `merge.py`.
 
 
 ```python
 def merge_sort(array):
     # the base case is a list with 0 or 1 elements which is is already sorted.
+
     if len(array)>1:
         # find the middle of the list using integer division to find the split point
         mid = len(array)//2
-        # divide the elements into two halves using the mid  as the split point
+        # divide the elements into two halves using the mid point
+        # # The elements are copied into the temporary arrays left[] and right[]
         # left contains the elements from the first half of the list (up to the mid)
         left = array[:mid]
         # right contains the elements from the second half of the list, (from mid to the end)
@@ -340,8 +283,7 @@ def merge_sort(array):
         # The following code does the merge part, merging the two smaller lists into a single sorted list 
         # i, j and k represents the index of the left array, right array and merged arrays respectively.
         i ,j, k = 0,0,0
-
-        # The elements are placed back into the original list by repeatedly comparing and taking the smallest item from the two sorted lists.
+        # The elements are placed back into the original list (array) by repeatedly taking the smallest item from the two sorted lists.
 
         # until the left and right arrays are empty.
         while i < len(left) and j < len(right):
@@ -368,6 +310,7 @@ def merge_sort(array):
             j += 1
             k += 1
     return array
+
 ```
 The Merge Sort algorithm uses a recursive divide-and-conquer approach which results in a worst-case running time of $O(n\log{}n)$.
 
@@ -680,4 +623,21 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 ***
 # References
 
-[Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/runestone/books/published/pythonds/index.html). Online book by Brad Miller and David Ranum, Luther College
+- [Problem Solving with Algorithms and Data Structures using Python](https://runestone.academy/runestone/books/published/pythonds/index.html). Online book by Brad Miller and David Ranum, Luther College
+
+- [geeksforgeeks](https://www.geeksforgeeks.org/stability-in-sorting-algorithms/)
+
+- [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort)
+- [programiz](https://www.programiz.com/dsa/bubble-sort)
+-  [W3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php)
+-  [geekforgeeks](https://www.geeksforgeeks.org/bubble-sort/)
+-  [runestone interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBubbleSort.html)
+
+- [merge sort](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html)
+- [programiz](https://www.programiz.com/dsa/merge-sort)
+
+- [Merge Sort](https://en.wikipedia.org/wiki/Merge_sort)
+- [divide-and-conquer](https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm) 
+
+
+-[Showing LaTeX formulas in GitHub Markdown](https://alexanderrodin.com/github-latex-markdown/?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
