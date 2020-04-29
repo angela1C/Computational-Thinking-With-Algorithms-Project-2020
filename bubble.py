@@ -21,9 +21,9 @@ def bubbleSort(array):
         # at each pass the last i elements are already in place so the inner loop is shorted by 1 each time
         for i in range(passnum): 
             # comparing each element i with the element right beside it (i+1)  
-            if arr[i] > arr[i+1] : 
+            if array[i] > array[i+1] : 
                 # If the elements are out of order swap them so the largest element is right of the smaller one
-                arr[i], arr[i+1] = arr[i+1], arr[i]
+                array[i], array[i+1] = array[i+1], array[i]
 
 
 # optimised short bubble from https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBubbleSort.html
