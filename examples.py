@@ -3,7 +3,7 @@
 def bubbleSortP(array):
 
     
-    print(f"The number of passes required will be {len(arr)-1} on a list of size {len(arr)}")
+    print(f"The number of passes required will be {len(array)-1} on a list of size {len(array)}")
 
     for passnum in range(len(array)-1,0,-1): # goes through the process 49 times
         print(f" in iteration {passnum} of the outer loop, {array}")
@@ -11,10 +11,10 @@ def bubbleSortP(array):
             print(f" In iteration {i} of the inner loop")
             # comparing each element j with the element beside it (i+1) 
  
-            if arr[i] > arr[i+1] : 
-                print(f" A swap is required here for elements {arr[i],arr[i+1]}")
+            if array[i] > array[i+1] : 
+                print(f" A swap is required here for elements {array[i],array[i+1]}")
                 # If the elements are out of order swap them so 
-                arr[i], arr[i+1] = arr[i+1], arr[i]
+                array[i], array[i+1] = array[i+1], array[i]
 
 import random
 # a random array of 10 elements 
@@ -73,7 +73,7 @@ def merge_sort(array):
 
         # until the left and right arrays are empty ??
         while i < len(left) and j < len(right):
-            print(f" left array: {left} , right array {right}")
+            #print(f" left array: {left} , right array {right}")
             #print(f" While i {i} is less than {len(left)} AND {j} is less than  {len(right)}")
             # compare the first/next element in left and right arrays, if the next element is less than the next element in right
             if left[i] <= right[j]:
@@ -171,6 +171,7 @@ def insertionSortP(array):
 ### Quick Sort with some print statements for an example
 def quickSortP(alist):
    quickSortHelper(alist,0,len(alist)-1)
+   return alist
 
 def quickSortHelper(alist,first,last):
    if first<last:
@@ -213,3 +214,13 @@ def partition(alist,first,last):
 
 
    return rightmark
+
+
+if __name__ == "__main__":
+    array = [8,6,3,4,5,2,9]
+    merge_sort(array)
+
+    array = [43,74,22,42,54,11,63,76,33]
+    print(array)
+    quickSortP(array) 
+    print(array)

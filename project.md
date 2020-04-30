@@ -143,7 +143,7 @@ there are n-1 comparisons performed on the first pass, n-2 on the second pass, n
 The total number of comparisons is the sum of the first n-1 integers. 
 
 
-<img src="images/bubble_example1.png" width="200" height ="200" align="center"/>
+<img src="images/Bubble_Sort.png" width="400"/>
 
 
 Illustrating the **worst-case** scenario where the array is in reverse order:
@@ -249,9 +249,42 @@ A list with one or less elements is considered sorted and is the base case for t
 All the smaller-sublists are repeatedly merged back into a new single sorted list.
 This algorithm will need extra memory to copy the elements when sorting. The extra space is needed to store the two halves when they are extracted using the slicing.
 
-**need to insert image of merge sort example here ...**
+**need to insert image of merge sort example here**
+<img src="images/merge_sort.png" width="400"/>
 
 
+Splitting  [8, 6, 3, 4, 5, 2, 9]
+Splitting  [8, 6, 3]
+Splitting  [8]
+Merging  [8]
+Splitting  [6, 3]
+Splitting  [6]
+Merging  [6]
+Splitting  [3]
+Merging  [3]
+ Into merged goes 6
+Merging  [3, 6]
+ Into merged goes 8
+Merging  [3, 6, 8]
+Splitting  [4, 5, 2, 9]
+Splitting  [4, 5]
+Splitting  [4]
+Merging  [4]
+Splitting  [5]
+Merging  [5]
+ Into merged goes 5
+Merging  [4, 5]
+Splitting  [2, 9]
+Splitting  [2]
+Merging  [2]
+Splitting  [9]
+Merging  [9]
+ Into merged goes 9
+Merging  [2, 9]
+ Into merged goes 9
+Merging  [2, 4, 5, 9]
+ Into merged goes 9
+Merging  [2, 3, 4, 5, 6, 8, 9]
 
 
 
@@ -502,11 +535,18 @@ Trying to get images into Github markdown
     <img src="images/Insertion_sort.png" width="300" alt="insertion sort example" />
 </p>
 
-link to github folder here:
+link to github folder here using img src tag
 
-<img src="https:github.com/angela1C/CTA_project/images/Insertion_sort.png">
+<img src="https://github.com/angela1C/CTA_project/blob/master/images/insertion_sort.png" width="300">
 
-! link here.
+using markdown image link here:
+
+![](https://github.com/angela1C/CTA_project/blob/master/images/insertion_sort.png)
+
+
+
+
+! link here to local file
 ![insertion_sort]("images/Insertion_Sort.png")
 
 
@@ -610,6 +650,57 @@ The main steps in the quicksort algorithm are as follows:
  Reorder the array elements with values less than the pivot to be before the partition, the array elements with values greater than the pivot element come after the partition. After the partioning, the pivot will be in it's final position
 
 3. Recursion is used to apply the above two steps recursively to each of the two sub-arrays.
+
+### Python code for QuickSort algorithm:
+
+The python code for the Quick Sort sorting algorithm is widely available online. The code here is from interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheQuickSort.html). I have added comments in the script.
+
+```python
+# This function takes the first element as pivot, places the pivot element at its correct position in sorted array, 
+# and places all smaller (smaller than pivot) to left of pivot and all greater elements to right of pivot 
+
+def quickSort(array):
+    # call a recursive function that takes in the array, 
+   quickSortHelper(array,0,len(array)-1)
+   return array
+# a recursive function called by quickSort, base case is if the length of list passed in is < 1, it is already sorted
+# if length of list passed in is > 1, partition the array and recursively sort
+def quickSortHelper(array,first,last):
+   if first<last:
+       # find the split point
+       splitpoint = partition(array,first,last)
+       # recursively call the function on the two halves of the array
+       quickSortHelper(array,first,splitpoint-1)
+       quickSortHelper(array,splitpoint+1,last)
+
+# a function to partition the array using the pivot element, 
+def partition(array,first,last):
+    # the pivot is the first element in the array
+    pivotvalue = array[first]
+    # the first pointer is the first element in the remaining unsorted part
+    leftmark = first+1
+    # the right pointer is the last element remaining 
+    rightmark = last
+
+    done = False
+    while not done:
+        # move the first pointer right until the first element > pivot is found
+        while leftmark <= rightmark and array[leftmark] <= pivotvalue:
+            leftmark = leftmark + 1
+        # move the second pointer left until the first element < pivot 
+        while array[rightmark] >= pivotvalue and rightmark >= leftmark:
+            rightmark = rightmark -1
+        # stop when the second pointer is less than the first pointer (when cross over) 
+        if rightmark < leftmark:
+            done = True
+        else:
+           # using simulataneous assignment to swap the values that are out of place
+            array[leftmark],array[rightmark]  = array[rightmark], array[leftmark]
+    # swap with the pivot value 
+    array[first],array[rightmark] = array[rightmark],array[first]
+
+    return rightmark
+```
 
 
 The base case for the recursion is a subarray of length 0 or 1 as any such array will be considered sorted.
