@@ -496,21 +496,18 @@ key 4 is the element at a[4]
  [3, 4, 6, 9, 11]
 
 Trying to get images into Github markdown
-<p float="center">
+<p float="left">
     <img src="images/Insertion_sort.png" width="300" alt="insertion sort example" width ="300"/>
 </p>
 
-<img src="https:github.com/angela1C/CTA_project/images/Insertion_sort.png>
+link to github folder here:
 
-![insertion_sort](images/Insertion_Sort.png)
+<img src="https:github.com/angela1C/CTA_project/images/Insertion_sort.png">
 
-<img src= https://github.com/angela1C/pands-project/raw/master/images/iris_versicolor.png
+![insertion_sort]("images/Insertion_Sort.png")
 
-<p float="left">
-  <img src="images/iris_setosa.png" width="250" alt="iris setosa" />
-  <img src="images/iris_versicolor.png" width="250" alt = "versicolor" />
-  <img src="images/iris_virginica.png" width="250" alt ="iris virginica" /> 
-</p>
+
+
 
 The python code here is widely available online at [interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheInsertionSort.html), [w3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/),[programiz](https://www.programiz.com/dsa/insertion-sort)
 I have slightly adapted the variable names for my own understanding and commented the code.
