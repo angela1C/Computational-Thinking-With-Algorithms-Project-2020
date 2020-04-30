@@ -1,15 +1,16 @@
 # Project: Benchmarking Sorting Algorithms in Python
 
-testing LaTeX ...
-<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
-See [showing LaTeX formulas in GitHub](https://gist.github.com/a-rodin/fef3f543412d6e1ec5b6cf55bf197d7b)
+## Table of Contents
 
-
-
-In the **worst** case the outer loop has to execute $n-1$ times and in the **average** case the inner loop executes about <img src="https://render.githubusercontent.com/render/math?math=\frac{n}{2}"> times for each outer loop.
-
-<img src="https://render.githubusercontent.com/render/math?math=\frac{n}{2}">
-<img src="https://render.githubusercontent.com/render/math?math=$\frac{n}{2}$">
+- [1. Introduction](#1.-introduction)
+- [2.  Five Sorting Algorithms ](#2-five-sorting-algorithms)
+- [2.1.1 Bubble Sort: A Simple comparison-based sort](#2.1.1-bubble-sort:-a-simple-comparison-based-sort )
+- [2.1.2 Merge Sort:  An efficient comparison based sort](#2.1.2-merge-sort:-an-efficient-comparison-based-sort)
+- [2.1.3 Counting Sort:  A non comparison sort](#2.1.3-counting-sort:-a-non-comparison-sort)
+- [2.1.4 Insertion Sort any other sorting algorithm of your choice](#2.1.4-insertion-sort-any-other-sorting algorithm-of-your-choice)
+- [2.1.5 Quick Sort]
+- [3 Implementation and Benchmarking](#3-implementation-and-benchmarking)
+- [References](#references)
 
 ## 1. Introduction 
 (introduction 10%): 
@@ -58,7 +59,6 @@ According to [wikipedia](https://en.wikipedia.org/wiki/In-place_algorithm), *in 
 The various sorting algorithms differ from each other in their memory requirements which depends on how the actual algorithm works. When a sorting algorithm is run, it has to first read the input data from a storage location to the computers RAM. An **in-place** sorting algorithm is one that only uses a fixed additional amount of working space, no matter what the input size whereas other sorting algorithms may require additional working memory  which is often related to the input size. If there is limited memory available then in-place sorting is desirable.
 By producing the sorted output in the same memory space as the input data to be sorted avoids the need to use double the space. A sorting algorithm will still need some extra storage for working variables though.
 
-**get a bit more about in-place sorting, including which ones use it**.
 Some algorithm create empty arrays to hold sorted copies and this requires more memory as the size of the input increases. (mention which ones). In-place sorting does not require additional arrays as the relative position of the elements are swapped within the array to be sorted and therefore additional memory should not be required.
 
 **Stability** means that equivalent elements will retain their relative positioning after the sorting has taken place.
@@ -78,13 +78,13 @@ Complexity allows for algorithms to be compared by looking at their running time
 Memory or storage requirements of an algorithm could also be evaluated in this manner.
 
 The runtime of sorting algorithms can be measured by measuring the actual implementation of the algorithm using a timer function like pythons `timeit` module. The theoretical runtime complexity can be measured uses `Big O` notation which is a measure of the expected efficiency of an algorithm and measures the asymptotic behaviours of functions which means it measures how quickly a function grows or declines. The growth rate of a function is also called its *order*.  
-Big $O$ represents the relationship between the size of the input $n$ and the number of operations the algorithm takes and shows how quickly the the runtime grows as the input size increases. 
+Big ![O](https://render.githubusercontent.com/render/math?math=O) represents the relationship between the size of the input ![n](https://render.githubusercontent.com/render/math?math=n) and the number of operations the algorithm takes and shows how quickly the the runtime grows as the input size increases. 
 
-Big $O$ notation is usually used to describe the complexity of an algorithm in the worst-case scenario. It could also be used to describe the execution time required or the memory space used by an algorithm. 
+Big ![O](https://render.githubusercontent.com/render/math?math=O) notation is usually used to describe the complexity of an algorithm in the worst-case scenario. It could also be used to describe the execution time required or the memory space used by an algorithm. 
 While for small input size n all algorithms are efficient, when the size becomes non-trivial then 
-the order or growth or big O notation of an algorithm will become more and more significant and become more and more important.
+the order or growth or Big ![O](https://render.githubusercontent.com/render/math?math=O) notation of an algorithm will become more and more significant and become more and more important.
 
-If two algorithms have the same Big O notation, that does not mean they will execute in exactly the same times, but that the order of the number of operations that they will require to complete will be the same. 
+If two algorithms have the same Big ![O](https://render.githubusercontent.com/render/math?math=O) notation, that does not mean they will execute in exactly the same times, but that the order of the number of operations that they will require to complete will be the same. 
 
 The details of the project will look at the runtime complexity of 5 different sorting algorithms.
 
@@ -102,7 +102,7 @@ Introduce each of your chosen algorithms in turn, discuss their **space and time
 
 ***
 
-## 2.1.1 A Simple comparison-based sort - Bubble Sort
+## 2.1.1 Bubble Sort: A Simple Comparison based sort 
 See [wikipedia](https://en.wikipedia.org/wiki/Bubble_sort), [programiz](https://www.programiz.com/dsa/bubble-sort), [W3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-4.php), [geekforgeeks](https://www.geeksforgeeks.org/bubble-sort/), [runestone interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheBubbleSort.html)
 
 Bubble Sort is a fairly simple comparison-based sorting algorithm and is so named for the way larger values in a list “bubble up” to the end as sorting takes place. The algorithm repeatedly goes through the list to be sorted, comparing and swapping adjacent elements that are out of order.  With every new pass through the data, the next largest element bubbles up towards it's correct position. Although it is quite simple to understand and to implement, it is slow and impractical for most problems apart from situations where the data is already nearly sorted.
@@ -187,8 +187,8 @@ def bubbleSort(array):
                 # If the elements are out of order swap them so the largest element is right of the smaller one
                 array[i], array[i+1] = array[i+1], array[i]
 ```
-There are ![n-1](https://render.githubusercontent.com/render/math?math=n-1 passes required where n is the number of elements in the array minus 1.
-The outer loop runs ![n-1](https://render.githubusercontent.com/render/math?math=n-1 times. At the end of each iteration, another element will be in it's final sorted position. The inner loop goes through each element in the array up to the element(s) already sorted, each time comparing each element `i` with the element to the immediate right of it `i+1`.
+There are ![n-1](https://render.githubusercontent.com/render/math?math=n-1) passes required where n is the number of elements in the array minus 1.
+The outer loop runs ![n-1](https://render.githubusercontent.com/render/math?math=n-1) times. At the end of each iteration, another element will be in it's final sorted position. The inner loop goes through each element in the array up to the element(s) already sorted, each time comparing each element `i` with the element to the immediate right of it `i+1`.
 Using the `>` comparison operator, the elements are compared. If the element on the left (at index `i`) is greater in value than the element on it's right (at index `i`) then the elements are swapped.
 
 
@@ -199,7 +199,7 @@ See [realpython] and lecture notes.
 The algorithm here has two `for` loops where it first performs $n-1$ comparisons, then $n-2$ comparisons and so on down to the final comparison. 
 
 
-In the **worst** case the outer loop has to execute ![n-1](https://render.githubusercontent.com/render/math?math=n-1 times and in the **average** case the inner loop executes about ![\frac{n}{2}](https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn%7D%7B2%7D) times for each outer loop.
+In the **worst** case the outer loop has to execute ![n-1](https://render.githubusercontent.com/render/math?math=n-1) times and in the **average** case the inner loop executes about ![\frac{n}{2}](https://render.githubusercontent.com/render/math?math=%5Cfrac%7Bn%7D%7B2%7D) times for each outer loop.
 Inside the inner loop, the comparison and swap operations take constant time k.
 
 So it total it performs ![(n-1) + (n-2) + (n-3) ... + 2+1](https://render.githubusercontent.com/render/math?math=(n-1)%20%2B%20(n-2)%20%2B%20(n-3)%20...%20%2B%202%2B1) which is  ![n\frac{n}{2}+k = \frac{n^2}{k} \approx O(n^2) ](https://render.githubusercontent.com/render/math?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
@@ -230,7 +230,7 @@ See [runestone](https://runestone.academy/runestone/books/published/pythonds/Sor
 The results from the benchmarking will be in section 3 - Implementation and Benchmarking.
 
 ***
-## 2.1.2 Merge Sort - an efficient comparison based sort
+## 2.1.2 Merge Sort:  An efficient comparison based sort
 
 - See [merge sort](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html), [programiz](https://www.programiz.com/dsa/merge-sort)
 
@@ -312,7 +312,7 @@ def merge_sort(array):
     return array
 
 ```
-The Merge Sort algorithm uses a recursive divide-and-conquer approach which results in a worst-case running time of $O(n\log{}n)$.
+The Merge Sort algorithm uses a recursive divide-and-conquer approach which results in a worst-case running time of ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn)).
 
 The algorithm consists of two distinct processes, the splitting and the merging. 
 - A list can be split in half ![log \  n](https://render.githubusercontent.com/render/math?math=log%20%5C%20%20n) times where n is the number of elements in the list.
@@ -322,20 +322,20 @@ Therefore there are ![log \  n](https://render.githubusercontent.com/render/math
 See [interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheMergeSort.html)
 
 
-Merge-Sort gives good all around performances with similar best, worst and average cases with a linearitmic $O(n\log{}n)$ time complexity in each case. This makes it a good choice if predictable run-time is important.
+Merge-Sort gives good all around performances with similar best, worst and average cases with a linearitmic ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn)) time complexity in each case. This makes it a good choice if predictable run-time is important.
 There are versions of Merge Sort which are particularly good for sorting data with slow access times such as data that cannot be held in RAM or are stored in linked lists. 
 Merge Sort is a stable sorting algorithm.
 
 ## Summary of time and space complexity of Merge Sort
 
-- Best Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))$
+- Best Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
 - Average Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
 - Worst Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
 - Space complexity:  ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
 
 
 ***
-## 2.1.3 Counting Sort - a non-comparison sort
+## 2.1.3 Counting Sort:  A non comparison sort
 
 
 See [w3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/python-search-and-sorting-exercise-10.php),[wikipedia](https://en.wikipedia.org/wiki/Counting_sort), [programiz](https://www.programiz.com/dsa/counting-sort), [geeksforgeeks](https://www.geeksforgeeks.org/counting-sort/).
@@ -617,8 +617,117 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 ***
 ### Need to sort out example image...
 
+# 3 Implementation and Benchmarking
+
+- explain code
+- compare to time complexities in section 2
+- insert table
+- insert graph
+
+![Averages](images/Averages.png)
+
+![average_times](images/average_times.png)
+
+The Python application used for the benchmarking of five sorting algorithms is referenced here. 
+
+The purpose of the application is to take arrays of randomly generated integers with different input sizes and to test the effect of the input size on the running time of each sorting algorithm. The running time for each algorithm is is measured 10 times and the averages of the ten runs for each and each input size is then output to the console when the program has finished executing. The application also generates a plot of the resulting averages. In addition, the elapsed time for each individual run for each type of algorithm of each input array size is exported to csv file for reference. The average times are also exported to another csv file.
+
+The application I wrote for this begins by importing the relevant python libraries sich as `random`, `time`,`pandas`...
+The python code for the sorting algorithms are imported as modules. The code used for these sorting algorithms were described above in section 2.2 of this report and are widely available. 
+ 
+
+The `random` module was used to create random array sizes that varied from 100 integers to 10,000 integers. The `time` function from the `time` module function records time in seconds from the epoch.
+The main benchmarking program takes in three arguments as parameters to the function. The first argument is an array of sorting algorithms names which include the name of each sorting algorithm function and the module it is in. The second argument is array of sizes which holds the different input sizes. The last argument is the number of runs to run each sorting algorithm.
+The program consists of a for loop whch iteratates through each of the different sorting algorithms provided to it, a nested loop which iterates through each of the sizes in the size arrays and another loop which iterates the number of times provided for the `runs` parameter. Within the inner for loop, a random array is created using the size as the number of random elements, the function and for each algorithm name, the appropriate sorting function is called using the newly generated random array as the input to be sorted each time. The `time` function from the `time` module is used to time the actual sorting function using the random array generated. The creation of the random array is not timed, just the time taken for sorting the array using the sorting function. The time is taken immediately before the sorting function sorts the data and immediately after the sorting function sorts the data. The elapsed time is calculated as the difference between the two times. The [time.time]
+(https://docs.python.org/3/library/time.html#time.time) function returns the time in seconds since the epoch as a floating point number. Each elapsed time for each run is recorded in a list, each run number is also recorded in another list, the name of the sorting function called is recorded in another list, the size of the array sorted each time is recorded in another list. The results of each trial for each type of sorting algorithm for each size of array to be sorted is then output to a `pandas` dataframe. This contains the results of each individual trial in seconds. Another function is then called by the main program which takes the dataframe containing the raw elapsed times and calculates the averages to 3 decimal places of the 10 different runs for each sort algorithm for each input size.  The `pandas` `groupby` function is used here to get the averages grouped by the sorting function and the input size. The results are multiplied by 1000 to get the averages in milliseconds. The results of the groupby is then unstacked to get the results in the desired format for this benchmarking project. 
+The main function also calls another function to plot the averages using the `matplotlib.pyplot` module and the `seaborn` library. (probably dont need seaborn at all....) resulting in a graph showing the average times in milliseconds on the vertical axis and the size of the input array on the horizontal axis.
+
+When testing the program additional print statements were used to ensure that the resulting dataframe of elapsed times do contain the correct elapsed time for each trial for each algorithm at each input size. 
 
 
+
+Notes:
+
+The random arrays generated for each run contained random integers between 0 and (50). Change this to 100 to match project specification example.
+Using a wider range of integers may affect the performance of each algorithm. While the results in this benchmarking project showed the Counting Sort algorithm as being the fastest, it should be noted that the performance of the counting sort algorithm might decrease if a wider range of integers are used. 
+Maybe try this???  
+
+The graph below displays how the time complexity of each algorithm used compares to each other.
+I have limited the range on the y-axis. can change this or maybe used logs for the y-axis.
+
+Algorithms are compared by evaluating their performancce on problem instances of size n. This determines which algorithms scales to solve problems of a nontrivial size by evaluating the running time needed by the algorithm in relation to the size of the provided input.  (Heineman_Pollice_Selkow - Algorithms_in_a_Nutshell-EN.pdf).
+According to, the memory or storage required by each algorithm is a secondary performance evaluation.
+When evaluating the performance of an algorithm, the most expensive calculation within the algorithm must be identified to determine the performance classification.  
+
+Logarithmic algorithms are very efficient as they rapidly converge on the solution. The size of the problem is reduced in half each time. Log(n) in the book refers to  base 2.
+
+The following graph shows the typical complexity curves. (Computational Thinking with Algorithms,Patrick Mannion GMIT).
+The graph from the benchmarking here can be compared with the complexity curves.
+The best case complexity for Bubble Sort is O(n) with average and worse case time complexity of ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2)).
+
+When the averages of the 5 different sorting algorithms are plotted on the same graph, it is clear than Counting Sort is a far faster sorting algorithm than the two simple sorting algorithms Bubble Sort and Insertion Sort. Insertion sort outperforms Bubble Sort in terms of speed but they are still of the same order of magnitude. 
+When all five results are plotted, because of the difference in the order of magnitude it is difficult to see the correct shape of the curve for Bubble and Insertion Sort.
+When plotted on their own, you can see the growth rate is n squared which would be the average case complexity which occurs when the data provided is in random order.
+
+The plots seem to show the best case scenarios for each of the sorts. 
+
+- The best / average case for Bubble Sort occurs when the arrays are in random order.
+- The worst case scenario for Bubble Sort occurs when the data is in reverse order to be sorted.
+
+- The best case for Insertion sort is when the data is already sorted and is only simple algorithm that does this. A sorted list has no inversions and therefore run in linear time in the best case. But not very efficient on large random datasets. 
+- The worst case is when the input is in reverse order.
+
+The plot below shows both the insertion sort and bubble sorting algorithms called on arrays of sorted data. The plot shows that while Bubble Sort
+- 
+- Merge Sort gives all round good performance with similar best, average and worst case scenarios of linearithmic `n log n` making it a good choice when predictable run-time is important.
+
+- Counting Sorts running time is linear in the number of items and the difference between the maximum and minimum key values. O(n+k).
+- Note that while Counting Sort outperforms the other sorts in terms of speed here, this might change if the range of integers to be sorted changes. In this benchmarking study, the integers to be sorted ranged between 0 and 100.
+- 
+
+
+
+
+## Summary of time and space complexity of Bubble Sort:
+
+- Best Case complexity: ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
+- Average Case complexity: ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2))
+- Worst Case complexity: ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2))
+- Space complexity:  ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
+
+## Summary of time and space complexity of Insertion Sort
+
+- Best Case complexity: ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
+- Average Case complexity: ![$O(n^2)$](https://render.githubusercontent.com/render/math?math=%24O(n%5E2)%24)
+- Worst Case complexity: ![$O(n^2)$](https://render.githubusercontent.com/render/math?math=%24O(n%5E2)%24)
+- Space complexity:  ![$O(1)$](https://render.githubusercontent.com/render/math?math=%24O(1)%24)
+
+
+## Summary of time and space complexity of Merge Sort
+
+- Best Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))$
+- Average Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
+- Worst Case complexity: ![O(n\log{}n)](https://render.githubusercontent.com/render/math?math=O(n%5Clog%7B%7Dn))
+- Space complexity:  ![O(n)](https://render.githubusercontent.com/render/math?math=O(n))
+
+
+## Summary of time and space complexity of Quick Sort
+lecture notes:
+- Best Case complexity: ![$O(n \log n)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%5Clog%20n)%24)
+- Average Case complexity: ![$O(n \log n)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%5Clog%20n)%24)
+- Worst Case complexity: ![O(n^2)](https://render.githubusercontent.com/render/math?math=O(n%5E2))
+- Space complexity:  ![$O(n)$](https://render.githubusercontent.com/render/math?math=%24O(n)%24)
+While memory usage is  ![$O(n)$](https://render.githubusercontent.com/render/math?math=%24O(n)%24), there are variants of the Quick Sort algorithm that are ![$O(n \log n)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%5Clog%20n)%24).
+In practice it is one of the fastest known sorting algorithms, on average.
+Standard version is not stable, although stable versions do exist.
+
+
+
+## Summary of time and space complexity of Counting Sort
+- Best Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
+- Average Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
+- Worst Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)
+- Space complexity:  ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24
 
 
 ***
@@ -662,16 +771,7 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 - [geeksforgeeks](https://www.geeksforgeeks.org/quick-sort/)
 - [programiz.com](https://www.programiz.com/dsa/quick-sort)
 
-# 3 Implementation and Benchmarking
 
-- explain code
-- compare to time complexities in section 2
-- insert table
-- insert graph
-
-![Averages](images/Averages.png)
-
-![average_times](images/average_times.png)
 ## Other references
 
 - [df.columns = df.columns.droplevel()](https://stackoverflow.com/questions/22233488/pandas-drop-a-level-from-a-multi-level-column-index)

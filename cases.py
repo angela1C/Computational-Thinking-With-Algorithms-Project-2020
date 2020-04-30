@@ -1,3 +1,12 @@
+"""
+Using this for running different input instances instead of changing benchmarking.py script
+
+
+
+"""
+
+
+
 import random
 import time
 import pandas as pd
@@ -30,6 +39,7 @@ def benchmarking(algorithms, Sizes, runs):
             for run in range(runs):
                 # generate random arrays
                 x = [random.randint(0,100) for i in range(size)]
+                x.sort()
                 
                 #print(f" function {sort_algo} on array of length {len(x)}")
                 algorithm = algorithms[sort_algo]
@@ -65,31 +75,31 @@ def mean_sorts(df):
     return means.unstack()
 
 def plot_averages(df2):
-
     import seaborn as sns
     import matplotlib.pyplot as plt
 
     plt.rcParams["figure.figsize"]=(16,8)
     sns.set(style= "darkgrid")
     df2.T.plot(lw=2, colormap='jet', marker='.', markersize=10, 
-         title='Benchmarking Sorting Algorithms - Average Times')
+         title='Benchmarking Sorting Algorithms - Average Times on Sorted Data')
     plt.ylabel("Running time (milliseconds)")
     plt.xlabel("Input Size")
     #plt.ylim(0,80)
     #plt.show()
     # change this to save the image name different each time instead of overwriting existing image
 
-    plt.savefig('plot100.png', bbox_inches='tight')
+    plt.savefig('presorted.png', bbox_inches='tight')
  
 def export_results(times, means):
     # change this to store in a different file each time so I can compare results
-    times.to_csv('Time_trials' + '100'+'.csv')
-    means.to_csv('Averages' + '100' + '.csv')
+    times.to_csv('examples/sorted_Time_trials' + '100'+'.csv')
+    means.to_csv('examples/sorted_Averages' + '100' + '.csv')
 
 
 if __name__ == "__main__":
 
-    algorithms = {"BubbleSort": bubble.bubbleSort,"insertionSort":insertion.insertionSort,"mergeSort":merge.merge_sort, "quickSort":quick.quickSort, "CountingSort": counting.CountingSort}
+    algorithms = {"BubbleSort": bubble.bubbleSort, "InsertionSort":insertion.insertionSort}
+    algorithms = {"BubbleSort": bubble.bubbleSort,"InsertionSort":insertion.insertionSort,"MergeSort":merge.merge_sort, "QuickSort":quick.quickSort, "CountingSort": counting.CountingSort}
     # provide the sizes for the arrays to be sorted    
     sizeN = [250,500,1000]
     sizeN = [100,250,500,750,1000,1250,2500,3750,5000,6250,7500,8750,10000]

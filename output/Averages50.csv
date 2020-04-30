@@ -1,0 +1,6 @@
+,250,500,1000
+BubbleSort,7.599,25.75,105.961
+CountingSort,0.127,0.274,0.404
+insertionSort,5.312,12.03,48.58
+mergeSort,0.916,3.505,5.08
+quickSort,0.491,2.424,3.61
