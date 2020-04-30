@@ -464,6 +464,9 @@ Repeat this with all the elements up to the last element. There is one pass thro
 ## Example to illustrate Insertion Sort
 
 **Note! need to describe this better and annotate the picture with images**
+
+![Insertion_Sort.png](/images.Insertion_Sort.png)
+
 `a = [6,11,3,9,4]`
 
 The algorithm takes the unsorted array `[6,11,3,9,4]`. 
@@ -488,13 +491,26 @@ key 4 is the element at a[4]
  moving 9 at a[2] to a[3]  
  moving 6 at a[1] to a[2]  
  inserting 4 at a[1]
-[3, 4, 6, 9, 11]
+[3, 4, 6, 9, 11]  
  The array after being sorted 
  [3, 4, 6, 9, 11]
 
-<img src="images/insertion_sort.png" width="200" height ="200" align="center"/>
+Trying to get images into Github markdown
+<p float="center">
+    <img src="images/Insertion_sort.png" width="300" alt="insertion sort example" width ="300"/>
+</p>
 
+<img src="https:github.com/angela1C/CTA_project/images/Insertion_sort.png>
 
+![insertion_sort](images/Insertion_Sort.png)
+
+<img src= https://github.com/angela1C/pands-project/raw/master/images/iris_versicolor.png
+
+<p float="left">
+  <img src="images/iris_setosa.png" width="250" alt="iris setosa" />
+  <img src="images/iris_versicolor.png" width="250" alt = "versicolor" />
+  <img src="images/iris_virginica.png" width="250" alt ="iris virginica" /> 
+</p>
 
 The python code here is widely available online at [interactive python](https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheInsertionSort.html), [w3resources](https://www.w3resource.com/python-exercises/data-structures-and-algorithms/),[programiz](https://www.programiz.com/dsa/insertion-sort)
 I have slightly adapted the variable names for my own understanding and commented the code.
