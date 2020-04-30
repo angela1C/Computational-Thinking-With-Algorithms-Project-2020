@@ -620,6 +620,7 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 
 
 
+
 ***
 # References
 
@@ -661,9 +662,17 @@ According to Wikipedia "Inefficient implementations it is not a stable sort, mea
 - [geeksforgeeks](https://www.geeksforgeeks.org/quick-sort/)
 - [programiz.com](https://www.programiz.com/dsa/quick-sort)
 
+# 3 Implementation and Benchmarking
 
+- explain code
+- compare to time complexities in section 2
+- insert table
+- insert graph
 
+![Averages](images/Averages.png)
+
+![average_times](images/average_times.png)
 ## Other references
 
-
+- [df.columns = df.columns.droplevel()](https://stackoverflow.com/questions/22233488/pandas-drop-a-level-from-a-multi-level-column-index)
 - [Showing LaTeX formulas in GitHub Markdown](https://alexanderrodin.com/github-latex-markdown/?math=n%5Cfrac%7Bn%7D%7B2%7D%2Bk%20%3D%20%5Cfrac%7Bn%5E2%7D%7Bk%7D%20%5Capprox%20O(n%5E2)%20)
