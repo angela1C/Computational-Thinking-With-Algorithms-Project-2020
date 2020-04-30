@@ -496,11 +496,6 @@ Repeat this with all the elements up to the last element. There is one pass thro
 
 ## Example to illustrate Insertion Sort
 
-**Note! need to describe this better and annotate the picture with images**
-<img src="images/Insertion_sort.png" width="200" height ="200"/>
-
-or markdown !link??
-![Insertion_Sort.png](/images.Insertion_Sort.png)
 
 `a = [6,11,3,9,4]`
 
@@ -531,23 +526,15 @@ key 4 is the element at a[4]
  [3, 4, 6, 9, 11]
 
 Trying to get images into Github markdown
-<p float="left">
-    <img src="images/Insertion_sort.png" width="300" alt="insertion sort example" />
+<p float="center">
+    <img src="images/Insertion_sort.png" width="400" alt="insertion sort example" />
 </p>
 
-link to github folder here using img src tag
-
-<img src="https://github.com/angela1C/CTA_project/blob/master/images/insertion_sort.png" width="300">
 
 using markdown image link here:
 
 ![](https://github.com/angela1C/CTA_project/blob/master/images/insertion_sort.png)
 
-
-
-
-! link here to local file
-![insertion_sort]("images/Insertion_Sort.png")
 
 
 
@@ -650,6 +637,11 @@ The main steps in the quicksort algorithm are as follows:
  Reorder the array elements with values less than the pivot to be before the partition, the array elements with values greater than the pivot element come after the partition. After the partioning, the pivot will be in it's final position
 
 3. Recursion is used to apply the above two steps recursively to each of the two sub-arrays.
+
+### Example illustrating how the Quick Sort Algorithm works.
+
+<img src="images/QuickSort.png" width="400"/>
+
 
 ### Python code for QuickSort algorithm:
 

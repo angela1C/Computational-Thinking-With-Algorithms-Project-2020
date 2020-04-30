@@ -83,8 +83,8 @@ def plot_averages(df2):
  
 def export_results(times, means):
     # change this to store in a different file each time so I can compare results
-    times.to_csv('Time_trials' + '100'+'.csv')
-    means.to_csv('Averages' + '100' + '.csv')
+    times.to_csv('xxxTime_trials' + '100'+'.csv')
+    means.to_csv('xxxAverages' + '100' + '.csv')
 
 
 if __name__ == "__main__":
@@ -92,7 +92,7 @@ if __name__ == "__main__":
     algorithms = {"BubbleSort": bubble.bubbleSort,"insertionSort":insertion.insertionSort,"mergeSort":merge.merge_sort, "quickSort":quick.quickSort, "CountingSort": counting.CountingSort}
     # provide the sizes for the arrays to be sorted    
     sizeN = [250,500,1000]
-    sizeN = [100,250,500,750,1000,1250,2500,3750,5000,6250,7500,8750,10000]
+    #sizeN = [100,250,500,750,1000,1250,2500,3750,5000,6250,7500,8750,10000]
     # call the benchmarking function
     results = benchmarking(algorithms, sizeN, 5)
     

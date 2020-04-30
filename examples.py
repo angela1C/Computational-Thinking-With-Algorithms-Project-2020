@@ -220,7 +220,7 @@ if __name__ == "__main__":
     array = [8,6,3,4,5,2,9]
     merge_sort(array)
 
-    array = [43,74,22,42,54,11,63,76,33]
+    array = [54,25,92,16,76,30,43,55,20]
     print(array)
     quickSortP(array) 
     print(array)
