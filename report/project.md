@@ -13,25 +13,32 @@
 - [References](#references)
 
 ## 1. Introduction 
-(introduction 10%): 
-**Introduce the concept of sorting and sorting algorithms, discuss the relevance of concepts such as complexity (time and space), performance, in-place sorting, stable sorting, comparator functions, comparison-based and non-comparison-based sorts, etc.**
+
+### Introduce the concept of sorting and sorting algorithms, discuss the relevance of concepts such as complexity (time and space), performance, in-place sorting, stable sorting, comparator functions, comparison-based and non-comparison-based sorts, etc.
+
+
 
 Notes based largely on information from Algorithms in a Nutshell and lecture notes. Any other source is referenced as it arises.
 Review and edit.
 
-**Sorting** is the process or operation of ordering items and data according to specific criteria [Collins Dictionary](https://www.collinsdictionary.com/dictionary/english/sorting). Arranging items, whether manually or digitally into some order makes many common tasks easier to do. Sorted information is nearly always easier for human beings to understand and work with, whether it is looking up a number in a phone book, finding a book on a library or bookshop shelf, referring to a statistical tables book, deciding what to watch on television. It is even more pervasive when we use technology. Social media and news feeds, emails, search items in a browser or recommendations for where to eat to what to do are all sorted according to some algorithms whether it is by date, popularity, location etc.
+[Sorting](https://www.collinsdictionary.com/dictionary/english/sorting) is the process or operation of ordering items and data according to specific criteria. Arranging items, whether manually or digitally into some order makes many common tasks easier to do. Sorted information is nearly always easier for human beings to understand and work with, whether it is looking up a number in a phone book, finding a book on a library or bookshop shelf, referring to a statistical tables book, deciding what to watch on television. It is even more applicable with technology. Social media and news feeds, emails, search items in a browser or recommendations for where to eat to what to do are all sorted according to some algorithms whether it is by date, popularity, location etc.
 
-Sorted sequences are commonly used to make many other tasks more efficient as many computations can be simplified by having the information properly sorted beforehand. 
-Sorting is a common operation in many computer applications and the search for efficient sorting algorithms dominated the early days of computing. Numerous computations and tasks are simplified by properly sorting information in advance, searching for a particular item in a list, checking if there are duplicate items in a list or collection, determining the smallest and largest values or the most common values or least common values can all be more easily done when the data is already sorted. 
+Numerous computations and tasks can be simplified and made more efficient by having the data sorted in advance, such as searching for an item, checking for duplicate items, determining the smallest and largest values, or the most common or least common values. Sorting is a common operation in many computer applications and the search for efficient sorting algorithms dominated the early days of computing. 
 
-According to [Algorithms to live by](), sorting is at the very heart of what computers do and is what actually brought computers into being in the first place. The task of tabulating the US Census in the late nineteenth century became very difficult as the population grew. An inventor Herman Hollerith was inspired by the punched railway tickets of the time to devise a system of punched cards and a machine (the Hollerith Machine) to count and sort them. This system was then used for the 1890 census. Hollerith's company later merged with others in 1911 to become the Computing Tabulating Recording Company which was later renamed to International Business Machines (IBM). 
+According to [Algorithms to live by The Computer Science of Human Decisions](Brian Christian and Tom Griffiths)[2], sorting is at the very heart of what computers do and is what actually brought computers into being in the first place. The task of tabulating the US Census in the late nineteenth century became very difficult as the population grew. An inventor by the name of Herman Hollerith was inspired by the punched railway tickets of the time to devise a system of punched cards and a machine (the Hollerith Machine) to count and sort them. This system was then used for the 1890 census. Hollerith's company later merged with others in 1911 to become the Computing Tabulating Recording Company which was later renamed to International Business Machines (IBM). 
 Sorting then lay behind the development of the computer in the 20th century. By the 1960's it was estimated by one study that more than a quarter of the world's computing resouces were spent on sorting.
 
-According to Algorithms in a Nutshell, if a collection of comparable elements `A` is presented to be sorted in place where `A[i]` and `ai` refer to the ith element in the collection with `A[0]` being the first element in the collection, then to sort the collection the elements `A` must be reorganised so that if `A[i] < A[j]`, then `i < j`. Any duplicate elements must be contiguous in the resulting ordered collection. This means that if `A[i] = A[j]` in a sorted collection, then there can be no `k` such that `i < k < j` and `A[i] ≠ A[k]`. Finally, the sorted collection A must be a permutation of the elements that originally formed `A`. 
+Much of the information here is based on Algorithms in a Nutshell by George T. Heineman, Gary Pollice and Stanley Selkow and lecture notes for the Computational Thinking with Algorithms at GMIT.
+
+Numbers and single characters can be quite easily sorted. While composite elements such as strings of characters are usually sorted by sorting each individual element of the string. Two elements can be compared to each other to see if they are less than, greater than or equal to each other.  Sorting of custom objects may require a custom ordering scheme. In general a **comparator function** compares the elements p to q and returns 0 if p = q, a negative number if p < q, and a positive number if p > q. Using the example provided in the book, an airport terminal might list outbound flights in ascending order of destination city or departure time while flight numbers appear to be unordered.
+
+
+According to Algorithms in a Nutshell, if a collection of comparable elements
+$A$ is presented to be sorted in place where $A[i]$ and $ai$ refer to the ith element in the collection with $A[0]$ being the first element in the collection, then to sort the collection the elements $A$ must be reorganised so that if $A[i] < A[j]$, then $i < j$. Any duplicate elements must be contiguous in the resulting ordered collection. This means that if $A[i] = A[j]$ in a sorted collection, then there can be no $k$ such that $i < k < j$ and $A[i] ≠ A[k]$. Finally, the sorted collection A must be a permutation of the elements that originally formed $A$. 
 
 The book also outlines how "the elements in the collection being compared must admit a total ordering. That is, for any two elements p and q in a collection, exactly one of the following three predicates is true: `p = q`, `p < q`, or `p > q` ".
 
-Numbers and single characters can be quite easily sorted. While composite elements such as strings of characters are usually sorted by sorting each individual element of the string. Two elements can be compared to each other to see if they are less than, greater than or equal to each other.  Sorting of custom objects may require a custom ordering scheme. In general a **comparator function** compares the elements p to q and returns 0 if p = q, a negative number if p < q, and a positive number if p > q. Using the example provided in the book, an airport terminal might list outbound flights in ascending order of destination city or departure time while flight numbers appear to be unordered.
+
 
 The concept of sorting and sorting algorithms, the relevance of concepts such as **complexity** (time and space), **performance**, **in-place sorting**, **stable sorting**, **comparator functions**, **comparison-based** and **non-comparison-based** sorts, etc.
 
@@ -249,8 +256,9 @@ A list with one or less elements is considered sorted and is the base case for t
 All the smaller-sublists are repeatedly merged back into a new single sorted list.
 This algorithm will need extra memory to copy the elements when sorting. The extra space is needed to store the two halves when they are extracted using the slicing.
 
-**need to insert image of merge sort example here**
-<img src="images/merge_sort.png" width="400"/>
+### Example of Merge Sort.
+
+<img src="images/merge_pic.png" width="400"/>
 
 
 Splitting  [8, 6, 3, 4, 5, 2, 9]
@@ -775,6 +783,8 @@ The plots seem to show the best case scenarios for each of the sorts.
 
 - The best case for Insertion sort is when the data is already sorted and is only simple algorithm that does this. A sorted list has no inversions and therefore run in linear time in the best case. But not very efficient on large random datasets. 
 - The worst case is when the input is in reverse order.
+- When the input is sorted, Insertion sort achieves the same order of growth in speed as Counting Sort and Merge Sort. I excluded QuickSort when running sorts on large arrays of already sorted values as the maximum depth in recursion occured.
+- 
 
 The plot below shows both the insertion sort and bubble sorting algorithms called on arrays of sorted data. The plot shows that while Bubble Sort
 - 
@@ -820,7 +830,8 @@ While memory usage is  ![$O(n)$](https://render.githubusercontent.com/render/mat
 In practice it is one of the fastest known sorting algorithms, on average.
 Standard version is not stable, although stable versions do exist.
 
-
+I have found that quick sort algorithm here experiences a recursion error when called on the larger array sizes of reverse sorted and even sorted arrays.
+RecursionError: maximum recursion depth exceeded in comparison
 
 ## Summary of time and space complexity of Counting Sort
 - Best Case complexity: ![$O(n + k)$](https://render.githubusercontent.com/render/math?math=%24O(n%20%2B%20k)%24)

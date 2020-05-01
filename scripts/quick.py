@@ -9,7 +9,7 @@ Based on code from https://runestone.academy/runestone/books/published/pythonds/
 def quickSort(array):
     # call a recursive function that takes in the array, 
    quickSortHelper(array,0,len(array)-1)
-   return array
+   
 # a recursive function called by quickSort, base case is if the length of list passed in is < 1, it is already sorted
 # if length of list passed in is > 1, partition the array and recursively sort
 def quickSortHelper(array,first,last):
@@ -52,6 +52,10 @@ def partition(array,first,last):
 if __name__ == "__main__":
 
     array=[54,26,93,17,77,31,44,55,20]
-  
-    print(quickSort(array))
-    
+    import random
+    x = [random.randint(0,100) for i in range(1000)]
+    #x.sort(reverse=True)
+    quickSort(x)
+    print(x)
+
+# This quick sort algorithm breaks down  on a reverse sorted list 

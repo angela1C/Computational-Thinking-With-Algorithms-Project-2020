@@ -30,6 +30,7 @@ def benchmarking(algorithms, Sizes, runs):
             for run in range(runs):
                 # generate random arrays
                 x = [random.randint(0,100) for i in range(size)]
+                #x.sort()
                 
                 #print(f" function {sort_algo} on array of length {len(x)}")
                 algorithm = algorithms[sort_algo]
@@ -92,7 +93,8 @@ if __name__ == "__main__":
     algorithms = {"BubbleSort": bubble.bubbleSort,"insertionSort":insertion.insertionSort,"mergeSort":merge.merge_sort, "quickSort":quick.quickSort, "CountingSort": counting.CountingSort}
     # provide the sizes for the arrays to be sorted    
     sizeN = [250,500,1000]
-    #sizeN = [100,250,500,750,1000,1250,2500,3750,5000,6250,7500,8750,10000]
+    sizeN = [100,250,500,750,1000,1250,2500]
+
     # call the benchmarking function
     results = benchmarking(algorithms, sizeN, 5)
     
