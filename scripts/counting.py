@@ -1,4 +1,8 @@
 """
+
+Benchmarking Sorting Algorithms project
+Angela Carpenter
+
 Counting Sort - a non-comparison based sort
 
 Code based on code at the following sources with some adaptation and commenting
@@ -30,8 +34,4 @@ def CountingSort(array):
             counter[i] -= 1
     return sorted
 
-import random
 
-if __name__ == "__main__":
-    array = [random.randint(0,7) for i in range(8)]
-    print(CountingSort(array))

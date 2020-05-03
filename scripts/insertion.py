@@ -1,13 +1,16 @@
 """
+Benchmarking Sorting Algorithms Project
+Angela Carpenter
+
 Insertion Sort algorithm
 
-Code adapted and commented based on java code in lecture notes and python code at  https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheInsertionSort.html
+Code adapted and commented based on java code in Computational Thinking with Algorithms lecture notes and python code at  https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheInsertionSort.html
 and geekforgeeks.com
 """
 
 
 # my adapted and commented version based on lecture notes and codes at interactive python, geeks etc.
-def insertionSort(array):
+def InsertionSort(array):
     # starting at the 2nd element in the list of item, at index 1
     for i in range(1,len(array)):
     # iterate through the array, each time setting the key to be the next element in the array
@@ -24,11 +27,6 @@ def insertionSort(array):
     # after shifting elements, move key to its correct new position after the element just smaller than it.
         array[j+1]=key
 
-import random
-x = [random.randint(0,30) for i in range(20)]
 
-if __name__ == "__main__":
 
-    print(f"The array before being sorted using insertion sort \n {x}")
-    insertionSort(x)
-    print(f" The array after being sorted \n {x}")
+    

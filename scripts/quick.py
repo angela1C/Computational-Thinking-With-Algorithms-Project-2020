@@ -1,6 +1,9 @@
 """
+Benchmarking Sorting Algorithms project
+Angela Carpenter
+
 QuickSort code
-Based on code from https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheQuickSort.html
+Code from https://runestone.academy/runestone/books/published/pythonds/SortSearch/TheQuickSort.html
 """
 
 # This function takes the first element as pivot, places the pivot element at its correct position in sorted array, 
@@ -51,11 +54,8 @@ def partition(array,first,last):
 
 if __name__ == "__main__":
 
-    array=[54,26,93,17,77,31,44,55,20]
-    import random
-    x = [random.randint(0,100) for i in range(1000)]
-    #x.sort(reverse=True)
+    
     quickSort(x)
-    print(x)
+
 
 # This quick sort algorithm breaks down  on a reverse sorted list 
