@@ -25,7 +25,7 @@ This repository contains:
 - A `scripts` subfolder with the main `benchmarking.py`  program and five sorting algorithms written in Python.
 - An `output` subfolder containing CSV files files produced by the Python scripts.
 - An `images` subfolder containing plots produced by the Python scripts. 
-- A `report` subfolder containing the final report in both PDF and Jupyter notebook format together with supporting images and diagrams.
+- A `report` subfolder containing the final report in PDF together with supporting images and diagrams.
 
 
 The Python code was developed using the  Visual Studio Code editor.
